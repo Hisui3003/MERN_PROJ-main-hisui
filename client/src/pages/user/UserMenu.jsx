@@ -19,7 +19,7 @@ const UserMenu = ({ toggleMenu }) => {
         });
     };
     return (
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex flex-col w-full gap-4">
             <div className="flex gap-4 p-3 bg-white rounded-sm shadow-md">
                 <img
                     src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/profile-pic-male_4811a1.svg"
@@ -40,10 +40,10 @@ const UserMenu = ({ toggleMenu }) => {
                 </div>
             </div>
 
-            <div className="bg-white flex flex-col justify-center rounded-sm sm:shadow-md">
+            <div className="flex flex-col justify-center bg-white rounded-sm sm:shadow-md">
                 <div className="flex flex-col justify-center border-b-[1px]">
                     <div className="flex flex-row items-center gap-6 pl-[10px] py-[8px]">
-                        <PersonIcon className="text-primaryBlue text-[16px]" />
+                        <PersonIcon className="text-gray-400 text-[16px]" />
                         <div className="font-[600] text-[14px] text-slate-500">
                             ACCOUNT SETTINGS
                         </div>
@@ -54,11 +54,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 Profile Information
                             </div>
                         </NavLink>
@@ -68,11 +68,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 Manage Addresses
                             </div>
                         </NavLink>
@@ -82,11 +82,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 Pan Card
                             </div>
                         </NavLink>
@@ -95,7 +95,7 @@ const UserMenu = ({ toggleMenu }) => {
 
                 <div className="flex flex-col justify-center border-b-[1px]">
                     <div className="flex flex-row items-center gap-6 pl-[10px] py-[8px]">
-                        <BarChartIcon className="text-primaryBlue text-[16px]" />
+                        <BarChartIcon className="text-gray-400 text-[16px]" />
                         <div className="font-[600] text-[14px] text-slate-500">
                             DASHBOARD
                         </div>
@@ -106,11 +106,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 My Orders
                             </div>
                         </NavLink>
@@ -120,11 +120,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 My Wishlist
                             </div>
                         </NavLink>
@@ -134,11 +134,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 Saved Cards
                             </div>
                         </NavLink>
@@ -148,11 +148,11 @@ const UserMenu = ({ toggleMenu }) => {
                             onClick={scrollToTop}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "font-[600] text-primaryBlue bg-[#f1f3f5]"
+                                    ? "font-[600] text-gray-400 bg-[#f1f3f5]"
                                     : ""
                             }
                         >
-                            <div className=" h-[40px] px-[60px] flex items-center hover:text-primaryBlue hover:bg-[#f1f3f5]">
+                            <div className=" h-[40px] px-[60px] flex items-center hover:text-gray-400 hover:bg-[#f1f3f5]">
                                 My Reviews
                             </div>
                         </NavLink>
@@ -161,9 +161,9 @@ const UserMenu = ({ toggleMenu }) => {
 
                 <div className="flex flex-col justify-center border-b-[1px]">
                     <div className="flex flex-row items-center gap-6 pl-[10px] py-[8px] group">
-                        <PowerSettingsNewIcon className="text-primaryBlue text-[16px]" />
+                        <PowerSettingsNewIcon className="text-gray-400 text-[16px]" />
                         <button
-                            className="font-[600] text-[14px] w-full h-[40px] flex items-center text-slate-500 group-hover:text-primaryBlue"
+                            className="font-[600] text-[14px] w-full h-[40px] flex items-center text-slate-500 group-hover:text-gray-400"
                             onClick={handleLogout}
                         >
                             Logout

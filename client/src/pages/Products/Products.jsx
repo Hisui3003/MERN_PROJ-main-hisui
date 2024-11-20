@@ -125,10 +125,11 @@ const Products = () => {
         <>
             <SeoData title="All Products | Flipkart" />
 
-            <MinCategory />
+            {/* <MinCategory /> */}
+            
             <main className="w-full pt-2 pb-5 sm:mt-0">
                 {/* <!-- row --> */}
-                <div className="flex gap-3 mt-2 sm:mt-2 sm:mx-3 m-auto ">
+                <div className="flex gap-3 m-auto mt-2 sm:mt-2 sm:mx-3 ">
                     {/* <!-- sidebar column  --> */}
                     <SideFilter
                         price={price}
@@ -141,13 +142,13 @@ const Products = () => {
                     {/* <!-- sidebar column  --> */}
 
                     {/* <!-- search column --> */}
-                    <div className="flex-1 relative ">
+                    <div className="relative flex-1 ">
                         {/* No products found */}
                         {!loading && products?.length === 0 && (
                             <div className="flex flex-col items-center justify-start gap-3 bg-white shadow-sm rounded-sm p-6 sm:p-16 sm:min-h-[750px] ">
                                 <img
                                     draggable="true"
-                                    className="w-1/2 h-44 object-contain"
+                                    className="object-contain w-1/2 h-44"
                                     src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/error-no-search-results_2353c5.png"
                                     alt="Search Not Found"
                                 />
@@ -165,7 +166,7 @@ const Products = () => {
                             <Spinner />
                         ) : (
                             products?.length !== 0 && (
-                                <div className="flex flex-col gap-2 pb-4 justify-center items-center w-full overflow-hidden bg-white">
+                                <div className="flex flex-col items-center justify-center w-full gap-2 pb-4 overflow-hidden bg-white">
                                     <div className="grid grid-cols-1 gap-1 sm:grid-cols-4 w-full place-content-start overflow-hidden pb-4 min-h-[750px] ">
                                         {currentProducts?.map((product) => (
                                             <Product
