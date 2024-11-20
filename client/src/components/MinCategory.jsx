@@ -22,10 +22,10 @@ const MinCategory = () => {
                     <Link
                         to="/products"
                         key={i}
-                        className="text-sm p-2 text-gray-800 font-medium hover:text-primaryBlue flex items-center gap-0.5 group"
+                        className="text-sm p-2 text-gray-800 font-medium hover:text-gray-500 flex items-center gap-0.5 group"
                     >
                         {el}
-                        <span className="text-gray-400 transition-all ease-out group-hover:text-primaryBlue group-hover:rotate-180">
+                        <span className="text-gray-400 transition-all ease-out group-hover:text-gray-500 group-hover:rotate-180">
                             <ExpandMoreIcon sx={{ fontSize: "16px" }} />
                         </span>
                     </Link>

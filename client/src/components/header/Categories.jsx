@@ -50,30 +50,22 @@ const catNav = [
 
 const Categories = () => {
     return (
-        <section className="hidden sm:block bg-white p-0 min-w-full px-12 shadow overflow-hidden">
-            <div className="flex items-center justify-between group">
-                {catNav.map((item, i) => (
-                    <Link
-                        to={`/products?category=${item.name}`}
-                        className="flex flex-col gap-1 items-center p-2"
-                        key={i}
-                    >
-                        <div className="h-16 w-16 ">
-                            <img
-                                draggable="false"
-                                className="h-full w-full object-contain"
-                                src={item.icon}
-                                alt={item.name}
-                            />
-                        </div>
-                        <span className="text-sm text-gray-800 font-medium group-hover:text-primary-blue">
-                            {item.name}
-                        </span>
-                    </Link>
-                ))}
-            </div>
+        <section className="hidden min-w-full p-0 px-12 bg-white sm:block">
+          <div className="flex justify-center space-x-4 group">
+            {catNav.map((item, i) => (
+              <Link
+                to={`/products?category=${item.name}`}
+                className="flex flex-col items-center"
+                key={i}
+              >
+                <span className="pt-1 pb-2 text-base font-light text-black uppercase border-b-2 border-transparent hover:border-black">
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
         </section>
-    );
+      );
 };
 
 export default Categories;
