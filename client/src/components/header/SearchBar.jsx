@@ -57,26 +57,36 @@ const SearchBar = () => {
                 <form
                     action="/search"
                     method=""
-                    className="bg-[#f0f5ff] relative w-[100%] rounded-md"
+                    className="bg-[#eceff1] relative w-[100%] "
                 >
                     <div className="flex items-center h-[40px] ">
-                        <div className=" flex items-center px-2">
+
+                    <div className="flex items-center ">
                             <button type="submit">
-                                <figure className=" text-slate-500 bg-transparent">
+                                <figure className="text-[#eceff1]  bg-transparent">
                                     <BsSearch />
                                 </figure>
                             </button>
                         </div>
+
                         <div className="w-[100%]">
                             <input
                                 type="text"
                                 title="Search for Products, Brands and More"
-                                placeholder="Search for Products, Brands and More"
-                                autoComplete="off"
+                                placeholder="  Search"
+                                autoComplete="on"
                                 className=" bg-transparent w-[100%] border-none outline-none text-[14px] md:text-[16px] p-1 placeholder-gray-600 "
                                 onChange={handleInputChange}
                                 value={query}
                             />
+                        </div>
+
+                        <div className="flex items-center px-2 ">
+                            <button type="submit">
+                                <figure className="text-black bg-transparent">
+                                    <BsSearch />
+                                </figure>
+                            </button>
                         </div>
                     </div>
                 </form>
