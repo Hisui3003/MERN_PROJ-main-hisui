@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import ScrollToTopOnRouteChange from "../../utils/ScrollToTopOnRouteChange";
 import Categories from "../../components/header/Categories";
-// import { electronicProducts } from "../../utils/electronics";
+// import { electronicProducts } from "../../utils/Shirts";
 // import { accessories } from "../../utils/accessories";
 // import { fashionProducts } from "../../utils/fashion";
 // import { applianceProducts } from "../../utils/appliances";
 // import { furnitureProducts } from "../../utils/furniture";
-// import electronics from "../../assets/images/electronics-card.jpg";
+// import Shirts from "../../assets/images/Shirts-card.jpg";
 // import accessoryCard from "../../assets/images/accessory-card.jpg";
 // import fashionCard from "../../assets/images/fashion-card.jpg";
 // import applianceCard from "../../assets/images/appliance-card.jpg";
@@ -24,7 +24,7 @@ const Home = () => {
   const { auth } = useAuth();
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState("Athlete"); // Set category to 'Electronics'
+  const [category, setCategory] = useState("Shoes"); // Set category to 'Shirts'
   const [price, setPrice] = useState([0, 200000]);
   const [ratings, setRatings] = useState(0);
 
@@ -77,22 +77,17 @@ const Home = () => {
 
   return (
     <>
-      <SeoData title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!" />
+      {/* <SeoData title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!" /> */}
       <ScrollToTopOnRouteChange />
       <Categories />
       <main className="flex-col items-center gap-3 px-2 pb-5 sm:mt-2">
         {/* Banner Section */}
         <div
-          className="w-full h-[600px] sm:h-[600px] bg-cover bg-center rounded-lg shadow-md mb-4"
+          className="w-full h-[600px] sm:h-[800px] bg-cover bg-center shadow-md mb-4"
           style={{
-            // Use the imported image as background
             backgroundImage: `url(${bannerImage})`,
           }}
         >
-          {/* Optional overlay for text */}
-          <div className="flex items-center justify-center w-full h-full text-center text-white bg-black bg-opacity-40">
-            {/* <h2 className="ml-40 text-3xl font-semibold">Active Attire</h2> */}
-          </div>
         </div>
 
         {/* Product Listing */}
