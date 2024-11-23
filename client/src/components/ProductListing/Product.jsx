@@ -71,7 +71,7 @@ const Product = ({
     return (
         <>
             <ScrollToTopOnRouteChange />
-            <div className="relative">
+            <div className="relative m-5 bg-slate-50">
                 {/* <!-- wishlist badge --> */}
                 <span
                     onClick={addToWishlistHandler}
@@ -86,7 +86,7 @@ const Product = ({
                     <FavoriteIcon sx={{ fontSize: "20px" }} />
                 </span>
                 {/* <!-- wishlist badge --> */}
-                <div className="relative flex flex-col items-center w-full gap-2 px-4 py-6 rounded-sm hover:shadow-lg">
+                <div className="relative z-10 flex flex-col items-center w-full gap-2 px-4 py-6 transition-transform duration-200 border rounded-sm border-slate-50 hover:shadow-lg hover:border-black hover:scale-105">
                     {/* <!-- image & product title --> */}
                     <Link
                         to={`/product/${_id}`}
@@ -106,25 +106,25 @@ const Product = ({
                     {/* <!-- product description --> */}
                     <div className="flex flex-col items-start w-full gap-2">
                         <h2 className="text-sm leading-6 font-[500] mt-4 group-hover:text-primary-blue text-left">
-                            {name.length > 25
-                                ? `${name.substring(0, 25)}...`
+                            {name.length > 100
+                                ? `${name.substring(0, 100)}...`
                                 : name}
                         </h2>
                         {/* <!-- rating badge --> */}
                         <span className="flex items-start justify-between gap-2 text-sm font-medium text-gray-500">
-                            <span className="text-xs px-1.5 py-0.5 bg-[#22ba20] rounded-sm text-white flex items-center gap-0.5">
+                            <span className="text-xs px-1.5 py-0.5 rounded-sm text-yellow-400 flex items-center gap-0.5">
                                 {ratings.toFixed(1)}
                                 <StarIcon sx={{ fontSize: "14px" }} />
                             </span>
                             <span>({numOfReviews})</span>
-                            <span>
+                            {/* <span>
                                 <img
                                     draggable="false"
                                     className="w-[60px] h-[20px] ml-4 object-contain"
                                     src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
                                     alt={name}
                                 />
-                            </span>
+                            </span> */}
                         </span>
                         {/* <!-- rating badge --> */}
 
@@ -134,7 +134,7 @@ const Product = ({
                             <span className="text-xs text-gray-500 line-through">
                                 ₱{price.toLocaleString()}
                             </span>
-                            <span className="text-xs text-primary-green">
+                            <span className="text-xs text-red-500">
                                 {getDiscount(price, discountPrice)}%&nbsp;off
                             </span>
                         </div>

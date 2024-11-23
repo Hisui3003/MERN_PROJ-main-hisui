@@ -55,6 +55,9 @@ const Header = () => {
     });
     return (
         <header ref={headerRef}>
+            <div className="h-5 bg-black">
+                
+            </div>
             <nav
                 className="container px-4 md:px-[50px]"
                 // onMouseLeave={closeDropdown}
@@ -95,7 +98,7 @@ const Header = () => {
                             className={`flex items-center relative cursor-pointer group ${
                                 auth.user
                                     ? "hover:bg-slate-100"
-                                    : "hover:bg-primaryBlue"
+                                    : "hover:bg-gray-300"
                             } rounded-md p-1`}
                             onMouseEnter={toggleDropdown}
                             onMouseLeave={closeDropdown}

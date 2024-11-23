@@ -1,12 +1,7 @@
 import shirts from "../../assets/images/Categories/phone.png";
 import shorts from "../../assets/images/Categories/fashion.png";
-// import electronics from "../../assets/images/Categories/electronics.png";
 import shoes from "../../assets/images/Categories/home.png";
 import eyewear from "../../assets/images/Categories/travel.png";
-// import appliances from "../../assets/images/Categories/appliances.png";
-// import furniture from "../../assets/images/Categories/furniture.png";
-// import beauty from "../../assets/images/Categories/beauty.png";
-// import grocery from "../../assets/images/Categories/grocery.png";
 import { Link } from "react-router-dom";
 
 const catNav = [
@@ -18,10 +13,6 @@ const catNav = [
         name: "Shorts",
         icon: shorts,
     },
-    // {
-    //     name: "Electronics",
-    //     icon: electronics,
-    // },
     {
         name: "Shoes",
         icon: shoes,
@@ -30,22 +21,6 @@ const catNav = [
         name: "Eyewear",
         icon: eyewear,
     },
-    // {
-    //     name: "Appliances",
-    //     icon: appliances,
-    // },
-    // {
-    //     name: "Furniture",
-    //     icon: furniture,
-    // },
-    // {
-    //     name: "Beauty,Toys & more",
-    //     icon: beauty,
-    // },
-    // {
-    //     name: "Grocery",
-    //     icon: grocery,
-    // },
 ];
 
 const Categories = () => {
@@ -58,7 +33,7 @@ const Categories = () => {
                 className="flex flex-col items-center"
                 key={i}
               >
-                <span className="pt-1 pb-2 text-base font-light text-black uppercase border-b-2 border-transparent hover:border-black">
+                <span className="pt-1 pb-2 mx-10 text-base font-light text-black uppercase border-b-2 border-transparent hover:border-black">
                   {item.name}
                 </span>
               </Link>

@@ -38,13 +38,13 @@ const Dashboard = () => {
                         <UserMenu toggleMenu={toggleMenu} />
                     </div>
                     <div
-                        className={`w-full sm:w-[70%] bg-white shadow-md rounded-sm ${
+                        className={`w-full sm:w-[70%] bg-white shadow-md rounded-2xl ${
                             isMenuOpen ? "hidden" : "block"
                         }`}
                     >
                         <button
                             onClick={toggleMenu}
-                            className="sm:hidden text-blue-400 underline rounded px-2 text-lg py-2"
+                            className="px-2 py-2 text-lg text-blue-400 underline rounded sm:hidden"
                         >
                             {isMenuOpen ? "Close" : <GiHamburgerMenu />}
                         </button>

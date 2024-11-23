@@ -97,11 +97,11 @@ const Shipping = () => {
                     {/* <!-- cart column --> */}
                     <div className="flex-1">
                         {/* <Stepper activeStep={1}> */}
-                        <div className="w-full px-4 sm:px-0 bg-white py-5">
+                        <div className="w-full px-4 py-5 bg-white sm:px-0">
                             <form
                                 onSubmit={shippingSubmit}
                                 autoComplete="off"
-                                className="flex flex-col justify-start gap-3 w-full sm:w-3/4 mx-1 sm:mx-8 my-4"
+                                className="flex flex-col justify-start w-full gap-3 mx-1 my-4 sm:w-3/4 sm:mx-8"
                             >
                                 <TextField
                                     value={address}
