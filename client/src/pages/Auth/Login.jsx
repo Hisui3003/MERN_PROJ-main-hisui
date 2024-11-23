@@ -10,6 +10,11 @@ import Spinner from "../../components/Spinner";
 import Cookies from "js-cookie";
 import SeoData from "../../SEO/SeoData";
 
+// For google signin
+import {googleAuth, googleProvider} from "../../components/googleSignIn/config";
+import { signInWithPopup } from "firebase/auth";
+import Home from "../../components/googleSignIn/Home";
+
 const Login = () => {
     //hooks->
     const [email, setEmail] = useState("");
@@ -85,6 +90,40 @@ const Login = () => {
         }
     };
 
+    // Google signin code
+    const [value, setValue] = useState("");
+    const handleClick = () => {
+        signInWithPopup(googleAuth, googleProvider)
+            .then((data) => {
+                console.log(JSON.stringify(data));
+                
+                const email = data.user.email;
+                setValue(email);
+                localStorage.setItem("email", email);
+                setAuth({
+                    ...auth,
+                    user: data.user,
+                    token: data.user.getIdToken,
+                });
+
+                Cookies.set("auth", JSON.stringify(data), {
+                    expires: 7,
+                });
+                navigate(location.state || "/"); // Redirect after login
+            })
+            .catch((error) => {
+                console.error("Google Sign-In Error:", error);
+            });
+    };
+
+    useEffect(() => {
+        const storedEmail = localStorage.getItem("email");
+        if (storedEmail) {
+            setValue(storedEmail);
+            navigate(location.state || "/"); // Redirect if already logged in
+        }
+    }, [navigate, location.state]);
+
     // display content
     return (
         <>
@@ -102,14 +141,14 @@ const Login = () => {
 
                         {/* sign up form */}
                         <div className="p-10 w-full h-full sm:w-[60%] md:w-[60%] lg:w-[60%] flex flex-col gap-y-10 ">
-                            <div className=" h-full w-full">
+                            <div className="w-full h-full ">
                                 <form
                                     action="/login"
                                     method="post"
                                     className="w-[90%] mx-auto transition-all"
                                     onSubmit={handleFormSubmit}
                                 >
-                                    <div className="text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 pt-3 ">
+                                    <div className="pt-3 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7 ">
                                         <div className="relative">
                                             <input
                                                 autoComplete="on"
@@ -120,14 +159,14 @@ const Login = () => {
                                                 onChange={(e) =>
                                                     setEmail(e.target.value)
                                                 }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 text-gray-900 text-sm focus:outline-none focus:border-blue-400"
+                                                className="w-full h-8 text-sm text-gray-900 placeholder-transparent border-b-2 peer focus:outline-none focus:border-blue-400"
                                                 placeholder="Email address"
                                                 required
                                                 pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" // Email pattern
                                             />
                                             <label
                                                 htmlFor="email"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
+                                                className="absolute left-0 text-xs text-gray-600 transition-all -top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
                                             >
                                                 Email Address
                                             </label>
@@ -147,19 +186,19 @@ const Login = () => {
                                                 onChange={(e) =>
                                                     setPassword(e.target.value)
                                                 }
-                                                className="peer placeholder-transparent h-8 w-full border-b-2 focus:border-blue-400 text-gray-900 focus:outline-none text-sm"
+                                                className="w-full h-8 text-sm text-gray-900 placeholder-transparent border-b-2 peer focus:border-blue-400 focus:outline-none"
                                                 placeholder="Password"
                                                 required
                                                 minLength="5"
                                             />
                                             <label
                                                 htmlFor="password"
-                                                className="absolute left-0 -top-3 text-gray-600 text-xs peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
+                                                className="absolute left-0 text-xs text-gray-600 transition-all -top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
                                             >
                                                 Password
                                             </label>
                                             <span
-                                                className="absolute right-3 bottom-2 hover:text-black cursor-pointer"
+                                                className="absolute cursor-pointer right-3 bottom-2 hover:text-black"
                                                 onClick={handlePasswordToggle}
                                             >
                                                 {!showPassword && <AiFillEye />}
@@ -181,11 +220,21 @@ const Login = () => {
                                                 Log in
                                             </button>
                                         </div>
+                                        <div>
+                                        {!value ? (
+                                            <button
+                                                onClick={handleClick}
+                                                className="bg-orange uppercase text-white text-[14px] font-[500] rounded-sm px-2 py-1"
+                                            >
+                                                Google Log in
+                                            </button>
+                                        ) : null}
+                                        </div>
                                     </div>
                                 </form>
                             </div>
 
-                            <div className="relative -mt-7 w-full text-center">
+                            <div className="relative w-full text-center -mt-7">
                                 <Link
                                     to="/forgot-password"
                                     className=" text-primaryBlue font-[500] text-[12px] "
@@ -193,7 +242,7 @@ const Login = () => {
                                     Forgot Password ?
                                 </Link>
                             </div>
-                            <div className="relative mt-4 w-full text-center">
+                            <div className="relative w-full mt-4 text-center">
                                 <Link
                                     to="/register"
                                     className=" text-primaryBlue font-[500] text-[12px] "
