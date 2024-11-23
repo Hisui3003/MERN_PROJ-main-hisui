@@ -17,13 +17,13 @@ const OrderItem = ({
     return (
         <Link
             to={`./order_details/${orderId}`}
-            className="flex flex-col sm:flex-row items-start bg-white border rounded gap-5 px-4 sm:px-8 py-5 hover:shadow-lg mx-2 sm:mx-10"
+            className="flex flex-col items-start gap-5 px-4 py-5 mx-2 bg-white border rounded sm:flex-row sm:px-8 hover:shadow-lg sm:mx-10 "
         >
             {/* <!-- image container --> */}
-            <div className="w-full sm:w-32 h-20">
+            <div className="w-full h-20 sm:w-32">
                 <img
                     draggable="false"
-                    className="h-full w-full object-contain"
+                    className="object-contain w-full h-full"
                     src={item?.image}
                     alt={item?.name}
                 />
@@ -31,19 +31,19 @@ const OrderItem = ({
             {/* <!-- image container --> */}
 
             {/* <!-- order desc container --> */}
-            <div className="flex flex-col sm:flex-row justify-between w-full">
+            <div className="flex flex-col justify-between w-full sm:flex-row ">
                 <div className="flex flex-col w-[300px] gap-1 overflow-hidden">
                     <p className="text-sm">
                         {item?.name.length > 40
                             ? `${item?.name.substring(0, 40)}...`
                             : item?.name}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="mt-1 text-xs text-gray-500">
                         Quantity: {item?.quantity}
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row mt-1 sm:mt-0 gap-2 sm:gap-20 sm:w-1/2">
+                <div className="flex flex-col gap-2 mt-1 sm:flex-row sm:mt-0 sm:gap-20 sm:w-1/2">
                     <p className="text-sm w-[100px]">
                         ₱{item?.discountPrice.toLocaleString()}
                     </p>
@@ -66,7 +66,7 @@ const OrderItem = ({
                                 </>
                             ) : orderStatus === "Out For Delivery" ? (
                                 <>
-                                    <span className="text-yellow-500 pb-0.5">
+                                    <span className="text-yellow-400 pb-0.5">
                                         <CircleIcon sx={{ fontSize: "14px" }} />
                                     </span>
                                     Out For Delivery
@@ -81,23 +81,23 @@ const OrderItem = ({
                             )}
                         </p>
                         {orderStatus === "Delivered" ? (
-                            <p className="text-xs ml-1">
+                            <p className="ml-1 text-xs">
                                 Your item has been Delivered
                             </p>
                         ) : orderStatus === "Shipped" ? (
-                            <p className="text-xs ml-1">
+                            <p className="ml-1 text-xs">
                                 Your item has been Shipped
                             </p>
                         ) : orderStatus === "Processed" ? (
-                            <p className="text-xs ml-1">
+                            <p className="ml-1 text-xs">
                                 Seller has processed your order
                             </p>
                         ) : orderStatus === "Out For Delivery" ? (
-                            <p className="text-xs ml-1">
+                            <p className="ml-1 text-xs">
                                 Your order is Out for Delivery
                             </p>
                         ) : (
-                            <p className="text-xs ml-1">
+                            <p className="ml-1 text-xs">
                                 Your order has been placed
                             </p>
                         )}

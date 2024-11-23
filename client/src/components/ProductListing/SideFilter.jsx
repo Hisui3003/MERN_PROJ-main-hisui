@@ -54,22 +54,26 @@ const SideFilter = ({
     };
 
     return (
-        <div className="hidden sm:flex flex-col w-1/5 px-1">
-            <div className="flex flex-col bg-white rounded-sm shadow">
+        <div className="flex-col hidden w-1/5 px-1 sm:flex">
+            <div className="flex flex-col bg-white rounded-2xl">
                 <div className="flex items-center justify-between gap-5 px-4 py-2 border-b">
                     <p className="text-lg font-medium">Filters</p>
                     <span
-                        className="uppercase text-primaryBlue text-xs cursor-pointer font-medium"
+                        className="text-xs font-medium text-black uppercase border-b-2 border-black cursor-pointer hover:text-gray-500"
                         onClick={() => clearFilters()}
                     >
                         clear all
                     </span>
                 </div>
 
-                <div className="flex flex-col gap-2 py-3 text-sm overflow-hidden">
+                <div className="h-10 bg-gray-100 border-gray-100">
+
+                </div>
+
+                <div className="flex flex-col gap-2 py-3 overflow-hidden text-sm">
                     {/* Price slider filter */}
-                    <div className="flex flex-col gap-2 border-b px-4">
-                        <span className="font-medium text-xs">PRICE</span>
+                    <div className="flex flex-col gap-2 px-4 border-b">
+                        <span className="text-xs font-medium">PRICE</span>
 
                         <Slider
                             value={price}
@@ -80,12 +84,12 @@ const SideFilter = ({
                             max={200000}
                         />
 
-                        <div className="flex gap-3 items-center mb-2">
+                        <div className="flex items-center gap-3 mb-2">
                             <span className="flex-1 min-w-[70px] border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">
                             ₱{price[0].toLocaleString()}
                             </span>
                             <span className="font-medium text-gray-400">
-                                to
+                                -
                             </span>
                             <span className="flex-1 min-w-[70px] border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">
                             ₱{price[1].toLocaleString()}
@@ -93,13 +97,17 @@ const SideFilter = ({
                         </div>
                     </div>
 
+                    <div className="h-10 bg-gray-100 border-gray-100">
+
+                </div>
+
                     {/* Category filter */}
-                    <div className="flex flex-col border-b px-4">
+                    <div className="flex flex-col px-4 border-b">
                         <div
-                            className="flex justify-between cursor-pointer py-2 pb-4 items-center"
+                            className="flex items-center justify-between py-2 pb-4 cursor-pointer"
                             onClick={() => setCategoryToggle(!categoryToggle)}
                         >
-                            <p className="font-medium text-xs uppercase">
+                            <p className="text-xs font-medium uppercase">
                                 Category
                             </p>
                             {categoryToggle ? (
@@ -141,13 +149,17 @@ const SideFilter = ({
                         )}
                     </div>
 
+                    <div className="h-10 bg-gray-100 border-gray-100">
+
+                </div>
+
                     {/* Ratings filter */}
-                    <div className="flex flex-col border-b px-4 -mb-4">
+                    <div className="flex flex-col px-4 -mb-4 border-b">
                         <div
-                            className="flex justify-between cursor-pointer py-2 pb-4 items-center"
+                            className="flex items-center justify-between py-2 pb-4 cursor-pointer"
                             onClick={() => setRatingsToggle(!ratingsToggle)}
                         >
-                            <p className="font-medium text-xs uppercase">
+                            <p className="text-xs font-medium uppercase">
                                 Ratings
                             </p>
                             {ratingsToggle ? (
