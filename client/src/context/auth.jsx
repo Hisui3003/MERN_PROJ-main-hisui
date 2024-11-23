@@ -31,6 +31,9 @@ const AuthProvider = ({ children }) => {
             user: null,
             token: "",
         });
+        localStorage.clear(); 
+        sessionStorage.clear();
+        
         Cookies.remove("auth");
         toast.success("Logged out Successfully!", {
             toastId: "LogOut",

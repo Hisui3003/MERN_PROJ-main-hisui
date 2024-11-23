@@ -59,7 +59,7 @@ const Header = () => {
                 className="container px-4 md:px-[50px]"
                 // onMouseLeave={closeDropdown}
             >
-                <div className=" flex items-center justify-between gap-3 md:gap-14 w-full flex-col md:flex-row sm:flex-row lg:flex-row">
+                <div className="flex flex-col items-center justify-between w-full gap-3 md:gap-14 md:flex-row sm:flex-row lg:flex-row">
                     {/* primary div */}
                     <div className=" sm:h-[100px] md:h-[60px] lg:h-[60px] flex items-center justify-between w-[100%] max-w-[650px]">
                         <div className=" flex gap-[20px] items-center w-[100%] flex-col md:flex-row sm:flex-row lg:flex-row">
@@ -104,7 +104,12 @@ const Header = () => {
                                 <div className="flex items-center gap-1 ">
                                     <AiOutlineUser className="text-[22px] " />
                                     <span className="text-[18px] max-w-fit hidden md:block lg:block ">
-                                        <p>{auth.user.name.split(" ")[0]}</p>
+                                         {/* <p>{auth.user.name.split(" ")[0]}</p>  */}
+                                         <p>
+                                            {auth.user.uid 
+                                                ? auth.user.displayName.split(" ")[0] 
+                                                : auth.user.name.split(" ")[0]}
+                                        </p>
                                     </span>
                                     <span>
                                         <RiArrowDropDownLine className="group-hover:rotate-[180deg] transition-all " />
@@ -114,7 +119,7 @@ const Header = () => {
                                 <div className="flex items-center gap-1 w-fit">
                                     <Link
                                         to="/login"
-                                        className=" flex gap-1 group-hover:text-white"
+                                        className="flex gap-1 group-hover:text-white"
                                     >
                                         <AiOutlineUser className="text-[22px] group-hover:text-white" />
                                         <span className="text-[18px] max-w-fit hidden md:block lg:block ">
@@ -139,7 +144,7 @@ const Header = () => {
                                 >
                                     <ul>
                                         {!auth.user && (
-                                            <li className="p-1 hover:bg-slate-100 rounded-md">
+                                            <li className="p-1 rounded-md hover:bg-slate-100">
                                                 <Link
                                                     to="/register"
                                                     className="flex items-center gap-3"
@@ -151,7 +156,7 @@ const Header = () => {
                                                 </Link>
                                             </li>
                                         )}
-                                        <li className="p-1 hover:bg-slate-100 rounded-md">
+                                        <li className="p-1 rounded-md hover:bg-slate-100">
                                             <Link
                                                 to={`${
                                                     auth?.user?.role === 1
@@ -168,7 +173,7 @@ const Header = () => {
                                         </li>
                                         {/* if user is not admin */}
                                         {auth.user?.role !== 1 && (
-                                            <li className="p-1 hover:bg-slate-100 rounded-md">
+                                            <li className="p-1 rounded-md hover:bg-slate-100">
                                                 <Link
                                                     to="/user/wishlist"
                                                     className="flex items-center gap-3"
@@ -180,7 +185,7 @@ const Header = () => {
                                                 </Link>
                                             </li>
                                         )}
-                                        <li className="p-1 hover:bg-slate-100 rounded-md">
+                                        <li className="p-1 rounded-md hover:bg-slate-100">
                                             <Link
                                                 to={`${
                                                     auth?.user?.role === 1
@@ -197,7 +202,7 @@ const Header = () => {
                                         </li>
 
                                         {auth.user && (
-                                            <li className="p-1 hover:bg-slate-100 rounded-md ">
+                                            <li className="p-1 rounded-md hover:bg-slate-100 ">
                                                 <Link
                                                     onClick={handleLogout}
                                                     to="/login"
